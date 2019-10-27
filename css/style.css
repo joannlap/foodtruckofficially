@@ -1,0 +1,435 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Avenir", sans-serif;
+}
+
+body {
+  background-color: #ddeaff;
+}
+
+p {
+  font-size: 80%;
+}
+
+/* menu bar */
+
+nav {
+  height: 6em;
+  background-color: #ddeaff;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+}
+
+ul {
+  display: flex;
+  justify-content: space-between;
+  width: 50%;
+  list-style: none;
+  transition: margin 0.4s ease-out;
+}
+
+ul a:hover {
+  color: hsl(222, 70%, 50%);
+}
+
+nav>a {
+  position: absolute;
+  top: 0;
+  left: 3em;
+  width: 150px;
+  height: 100px;
+  padding: 20px 0px;
+  padding-right: 50px;
+  cursor: pointer;
+}
+
+header {
+  position: relative;
+  z-index: 20;
+}
+
+section {
+  max-width: 960px;
+  margin: 0 auto;
+  /* padding-top: 40px; */
+  margin-top: 3em;
+  padding: 10px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 2.5em;
+}
+
+/* bron: https://css-tricks.com/snippets/css/complete-guide-grid/ */
+
+/* categories sorting */
+
+button.filter {
+  position: absolute;
+  margin-left: 15em;
+  box-shadow: none;
+}
+
+.categorize {
+  margin-left: 20em;
+  /* margin-bottom: 3em; */
+  width: 24em;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: left;
+  align-items: left;
+}
+
+ul.categories {
+  position: relative;
+  bottom: 2em;
+}
+
+nav.categorize>ul.categories>li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  padding: 3px 8px;
+  border-radius: 5px;
+  color: white;
+  margin: 1em;
+  background-color: steelblue;
+  height: 2em;
+  cursor: pointer;
+}
+
+
+nav a {
+  color: steelblue;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 15px;
+  letter-spacing: 1px;
+}
+
+button {
+  padding: 3px 8px;
+  font-size: 14px;
+  text-align: center;
+  color: #7DA2D9;
+  background-color: #fff;
+  border: none;
+  border-radius: 20px;
+  box-shadow: 2px 3px #efefef;
+  font-weight: bold;
+}
+
+/* whopper menu */
+.icon {
+  position: absolute;
+  top: 10%;
+  right: 0;
+  transform: translate(-30%, 10%);
+  width: 80px;
+  height: 80px;
+  cursor: pointer;
+  z-index: 20;
+}
+
+
+.hamburger {
+  width: 38%;
+  height: 3px;
+  background: steelblue;
+  position: absolute;
+  top: 30%;
+  right: 0;
+  z-index: 30;
+}
+
+.hamburger:before,
+.hamburger:after {
+
+  content: '';
+  position: absolute;
+  width: 30px;
+  height: 3px;
+  background: steelblue;
+  transition: .5s;
+  z-index: 30;
+}
+
+.hamburger:before {
+  top: -10px;
+}
+
+.hamburger:after {
+  top: 10px;
+}
+
+.icon.active .hamburger {
+
+  background: rgba(0, 0, 0, 0);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0);
+}
+
+.icon.active .hamburger:before {
+  top: 0;
+  transform: rotate(45deg);
+
+}
+
+.icon.active .hamburger:after {
+  top: 0;
+  transform: rotate(135deg);
+}
+
+/* bron: https://www.w3schools.com/css/css_pseudo_elements.asp 
+bron: https: //css-tricks.com/almanac/selectors/a/after-and-before/
+https: //www.w3schools.com/howto/tryit.asp?filename=tryhow_css_menu_icon_jsq*/
+
+/* foodtrucks content */
+.foodtruck {
+  width: 100%;
+  height: 200px;
+  text-decoration: none;
+  margin: 0;
+  border-radius: 3px;
+  box-shadow: 6px 6px 9px rgba(0, 0, 0, 0.12);
+}
+
+.foodtruck figure {
+  position: relative;
+  overflow: hidden;
+}
+
+.foodtruck figure img {
+  position: relative;
+  z-index: 10;
+  transition: transform 0.6s;
+  border-radius: 3px;
+  opacity: 0.9;
+}
+
+.foodtruck:hover img {
+  transform: translateY(-85px);
+}
+
+.foodtruck figcaption {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  padding: 20px;
+  height: 90px;
+  width: 100%;
+  border-bottom-left-radius: 7px;
+  border-bottom-right-radius: 7px;
+}
+
+/* Jon Duckett Html & CSS - blz 120 (figure and figcaption) */
+
+/* detail page */
+.korean {
+  display: absolute;
+  width: 40%;
+  height: 40%;
+  padding: 30px;
+}
+
+article>p.description {
+  flex: 0 0 auto;
+  margin: 0;
+  width: 50vw;
+  height: 100%;
+}
+
+article {
+  position: relative;
+  left: 38em;
+  bottom: 26em;
+}
+
+article>p {
+  display: block;
+  padding: 30px;
+  margin: 20px 0;
+  width: 60%;
+  font-size: 12px;
+  line-height: 25px;
+  letter-spacing: 0.1em;
+}
+
+h2 {
+  position: absolute;
+  left: 1.2em;
+  right: 20px;
+  /* padding: 30px; */
+  margin: 0;
+}
+
+img.korean {
+  display: relative;
+  width: 50%;
+}
+
+button.koreanbutton {
+  position: relative;
+  bottom: 30em;
+  left: 2em;
+}
+
+
+/* mobile viewport */
+@media screen and (max-width:768px) {
+  section {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  ul {
+    position: absolute;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    transition: .3s;
+    background: #F0F6FF;
+    flex-direction: column;
+    transform: translateY(-100%);
+  }
+
+  .filter {
+    position: absolute;
+    top: 60px;
+
+  }
+
+  ul a {
+    display: block;
+    padding: 1.5em;
+    color: steelblue;
+  }
+
+  .menuVisible {
+    transform: translateY(0);
+  }
+
+}
+
+/* desktop */
+@media (min-width: 48em) {
+  .icon {
+    display: none;
+  }
+}
+
+/* bron media queries: https://robinroelofsen.nl/responsive-websites-media-queries */
+/* bron uitklap menu: Sanne's Humpty spelletje */
+
+.foodtruck figure img {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+  height: 200px;
+}
+
+
+.foodtruck figcaption {
+  padding: 1em;
+  background: #7DA2D9;
+  color: #fff;
+
+}
+
+.foodtruck {
+  display: block;
+  width: 100%;
+  text-decoration: none;
+  margin: 1em 0;
+  cursor: pointer;
+}
+
+
+button.login {
+  width: 360px;
+  padding: 5% 0 0;
+  margin: auto;
+}
+
+/* login and signup form */
+form {
+  position: relative;
+  border-radius: 10px;
+  background: #E2EDFF;
+  max-width: 400px;
+  margin: 0 auto 100px;
+  padding: 45px;
+  text-align: center;
+  box-shadow: 6px 7px 9px rgba(0, 0, 0, 0.12);
+}
+
+.signup {
+  display: flex;
+  justify-content: center;
+
+}
+
+form img {
+  display: relative;
+  max-width: 50%;
+  margin: 1em auto;
+  padding-bottom: 1em;
+  opacity: 0.3;
+}
+
+form input {
+  box-sizing: border-box;
+  margin: 0 0 30px;
+  padding: 15px;
+  border-radius: 30px;
+  font-size: 14px;
+  outline: none;
+  background: #ffffff;
+  width: 100%;
+  border: 0;
+}
+
+form button {
+  cursor: pointer;
+  outline: none;
+  background: #7DA2D9;
+  width: 100%;
+  border-radius: 30px;
+  padding: 16px;
+  color: #FFFFFF;
+  font-size: 15px;
+  text-transform: uppercase;
+  transition: all 0.3 ease;
+  cursor: pointer;
+}
+
+form button:hover,
+button:focus {
+  background: #3F86FF;
+}
+
+form .message {
+  margin: 15px 0 0;
+  color: #b3b3b3;
+  font-size: 12px;
+}
+
+/* bron forms vanuit mijn website van internetstandaarden: https://oege.ie.hva.nl/~lieuwaj1/Scoopty/contact.html */
+
+register-form {
+  display: none;
+}
+
+footer {
+  display: inline;
+  text-align: center;
+  padding: 10px;
+  font-weight: bold;
+
+}
+
+
+/* bron flexbox: https://css-tricks.com/snippets/css/a-guide-to-flexbox/ */
+/* gebruik van selectors: Jon Duckett Html & CSS boek */
